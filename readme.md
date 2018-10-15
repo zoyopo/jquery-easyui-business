@@ -10,7 +10,7 @@
 ### 如何使用(quick start)
 
 ```
-   var app = new window.onlyJqApp(
+   var app = new window.JqApp(
      // an Object about event bind to DOM element and related fn 
      //一个关于事件绑到DOM元素上和对于的方法
      
