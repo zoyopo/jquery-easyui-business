@@ -13,12 +13,14 @@
    var app = new window.onlyJqApp(
      // an Object about event bind to DOM element and related fn 
      //一个关于事件绑到DOM元素上和对于的方法
+     
         {          
             'click #cart-btn': 'showMatchList'         
         },
 
       // an object tansfering dom Object to jq Object
       // 一个将dom对象转化成jq对象的键值对
+      
         {
            
             $body: 'body'
@@ -26,6 +28,7 @@
         },
       // a global data store
       // 当前页面全局公共数据
+      
         {          
            
             AddedClothes: [
@@ -35,6 +38,7 @@
         },
         // a fn name Array,they run after dom has rendered
         // dom渲染结束立即执行的方法
+        
         ["loadData","closeTips"]
     )
 
@@ -42,9 +46,12 @@
    
      app.then(
        // an Object to register fn above
+       
        {
        // e=> event ,JqObject=>bind dom's JqObject
          showMatchList:function(e,JqObject){
+         e.preventDefault();
+         e.stopPropagation();
           // to do someting
 
          },
@@ -61,9 +68,7 @@
          }
        }
      ).init();
-  
- 
-  }
+   }
   )
 
 ```
