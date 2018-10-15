@@ -1,20 +1,15 @@
 //抽象
 (function (global, $, _, doc) {
-    /**
-      * size=>弹出框大小
-      * cols=>easyui的列
+    /**    
       * eventsMap=>事件dom方法名映射
       * Eles=>dom封装
       * params=>注册方法集合
       * data 存储的变量
       *f 需要立即执行的数组
     */
-    var App = function (eventsMap, Eles,data,f,size, cols) {
+    var App = function (eventsMap, Eles,data,f) {
 
-        var self = this;
-        this.dlg = size == null ? "" : new MyAppDialog(size.width, size.height);
-        // this.cols =
-        this.cols = cols==null?"": cols;
+        var self = this;    
         this.Eles = Eles;
         this.eventsMap = eventsMap;
         this.data = data == null ? "" : data;
@@ -35,8 +30,7 @@
             }
         },
         init: function () {
-            var self = this;
-           
+            var self = this;           
             this.initializeElements();
             this.bindEvent();
             //this.loadGrid();
@@ -72,7 +66,7 @@
          //循环进行事件与dom的绑定
         bindEvent: function () {
             this.initializeOrdinaryEvents(this.eventsMap);
-        },
+        },       
         //具体事件业务方法的注册
         then: function (params) {
             var self = this;
@@ -86,16 +80,16 @@
     //组合继承
     //普通只使用jquery的页面
     //继承属性
-    var onlyJqApp=function(eventsMap, Eles,data,f){
+    //var onlyJqApp=function(eventsMap, Eles,data,f){
 
-        App.apply(this,[eventsMap, Eles,data,f]);
-    }
+        //App.apply(this,[eventsMap, Eles,data,f]);
+    //}
     //继承方法
-    onlyJqApp.prototype=new App();
+    //onlyJqApp.prototype=new App();
 
 
    //对window暴露构造函数
-    global.App = App;
-    global.onlyJqApp=onlyJqApp;
+    global.JqApp = App;
+   // global.onlyJqApp=onlyJqApp;
 
 })(this, this.jQuery, this.ext, document)
