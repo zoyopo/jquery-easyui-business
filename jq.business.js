@@ -1,5 +1,5 @@
 //抽象
-(function (global, $, _, doc,MyAppDialog) {
+(function (global, $, _, doc) {
     /**
       * size=>弹出框大小
       * cols=>easyui的列
@@ -98,4 +98,4 @@
     global.App = App;
     global.onlyJqApp=onlyJqApp;
 
-})(this, this.jQuery, this.ext, document,MyAppDialog)
+})(this, this.jQuery, this.ext, document)
